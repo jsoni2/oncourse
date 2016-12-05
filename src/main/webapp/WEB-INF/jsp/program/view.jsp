@@ -6,7 +6,7 @@
 <title>OnCourse - Project</title>
 </head>
 <body>
-<h2><a href="..">OnCourse</a> &gt;
+<h2><!-- <a href="/oncourse">OnCourse</a> --> &gt;
 <a href="list">Programs</a></h2>
 <h3>${program.department.name}: ${program.name}</h3>
 <p>${program.description}</p>

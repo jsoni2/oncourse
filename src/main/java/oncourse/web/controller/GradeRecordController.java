@@ -59,5 +59,17 @@ public class GradeRecordController {
         gradeRecord = gradeRecordDao.saveGradeRecord( gradeRecord );
         return "redirect:list";
     }
-
+    
+    @RequestMapping("/addgrade")
+    public GradeRecord addgrade( @RequestParam String season, @RequestParam Integer year,
+        @RequestParam Long courseId, @RequestParam Long gradeId )
+    {
+        GradeRecord gradeRecord = new GradeRecord();
+        gradeRecord.setStudent( SecurityUtils.getUser() );
+        gradeRecord.setTerm( new Term( year, season ) );
+        gradeRecord.setCourse( courseDao.getCourse( courseId ) );
+        gradeRecord.setGrade( gradeDao.getGrade( gradeId ) );
+        return gradeRecordDao.saveGradeRecord( gradeRecord );
+        
+    }
 }

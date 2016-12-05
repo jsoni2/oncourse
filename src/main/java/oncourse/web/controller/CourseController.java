@@ -1,16 +1,29 @@
 package oncourse.web.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
+
 
 import oncourse.model.Course;
 import oncourse.model.dao.CourseDao;
+
+
 
 @Controller
 @SessionAttributes("course")
@@ -52,6 +65,13 @@ public class CourseController {
     {
         course = courseDao.saveCourse( course );
         return "redirect:list";
+    }
+    
+    @RequestMapping(value = "/addcourse", method = RequestMethod.POST)
+    @ResponseBody
+    public Course ajaxadd(@RequestBody Course sub ) 
+    {
+ 		return courseDao.saveCourse(sub); 
     }
 
 }

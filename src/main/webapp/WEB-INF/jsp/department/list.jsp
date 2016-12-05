@@ -7,7 +7,7 @@
 <title>OnCourse - Departments</title>
 </head>
 <body>
-<h2><a href="..">OnCourse</a></h2>
+<!-- <h2><a href="/oncourse">OnCourse</a></h2> -->
 <h3>Departments</h3>
 <table border="1">
 <tr><th>Name</th><th>Programs</th></tr>
