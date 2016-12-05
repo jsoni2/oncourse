@@ -54,7 +54,7 @@
 	});
 </script>
 <script type="text/javascript">
-	function addUser() {
+	function addGrade() {
 		$
 				.ajax({
 					url : "addcourse",
