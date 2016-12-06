@@ -8,67 +8,23 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script type="text/javascript">
-	function addUser() {
-		$
-				.ajax({
-					url : "addcourse",
-					method : "POST",
-					dataType : "json",
-					processData : false,
-					contentType : "application/json",
-					data : JSON.stringify({
-						code : $("input[name='CODE']").val(),
-						name : $("input[name='COURSE_NAME']").val(),
-						units : $("input[name='UNIT']").val()
-					}),
-					success : function(data) {
-						alert(data.code);
-						var newRow = $("<tr data-course-id='" + data.id + "'>"
-								+ "<td data-field='ccode'>"
-								+ data.code
-								+ "</td>"
-								+ "<td data-field='cname'>"
-								+ data.name
-								+ "</td>"
-								+ "<td data-field='cunits' style='text-align: center;'>"
-								+ data.units
-								+ "</td>"
-								+ "<td><a class='edit' href='javascript:void(0)'>Edit</a></td>")
-						$("#courses").append(newRow);
-					}
-				});
-	}
-	$(function() {
-		$("#user-form1").dialog({
-			autoOpen : false,
-			buttons : {
-				"Save" : function() {
-					addUser()
-					$(this).dialog("close");
-				}
-			}
-		});
-	});
-	$("#add").click(function() {
-		$("#user-form1").dialog("open");
-	});
-</script>
-<script type="text/javascript">
 	function addGrade() {
+		console.log("inside add grade method ");
 		$
 				.ajax({
-					url : "addcourse",
+					url : "addgrade",
 					method : "POST",
 					dataType : "json",
 					processData : false,
 					contentType : "application/json",
 					data : JSON.stringify({
-						code : $("input[name='CODE']").val(),
-						name : $("input[name='COURSE_NAME']").val(),
-						units : $("input[name='UNIT']").val()
+						season : $("select[name='season']").val(),
+						year : $("select[name='year']").val(),
+						courseId : $("select[name='courseId']").val(),
+						gradeId : $("select[name='gradeId']").val()
 					}),
 					success : function(data) {
-						alert(data.code);
+						console.log("inside success");
 						var newRow = $("<tr data-course-id='" + data.id + "'>"
 								+ "<td data-field='ccode'>"
 								+ data.code
