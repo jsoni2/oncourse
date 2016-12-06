@@ -61,7 +61,7 @@ public class GradeRecordController {
 		return "redirect:list";
 	}
 
-	@RequestMapping(value = "/addgrade", method = RequestMethod.POST)
+	@RequestMapping(value = "/addgrade/", method = RequestMethod.POST)
 	@ResponseBody
 	public GradeRecord addgrade(@RequestParam String season,
 			@RequestParam String year, @RequestParam String courseId, @RequestParam String gradeId) {
